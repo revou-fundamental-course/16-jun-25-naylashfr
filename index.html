@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keliling Segitiga</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Keliling Segitiga</h2>
+
+    <div class="rumus">
+      <img src="segitiga.png" alt="Gambar Segitiga">
+      <p><strong>Rumus Keliling Segitiga yaitu :</strong><br>K = S1 + S2 + S3</p>
+      <p>
+        Di mana :<br>
+        K = Keliling<br>
+        S1 = Sisi A<br>
+        S2 = Sisi B<br>
+        S3 = Sisi C
+      </p>
+    </div>
+
+    <div class="form">
+      <h3>Hitung Keliling Segitiga</h3>
+      <input type="number" id="sisi1" placeholder="Sisi A">
+      <input type="number" id="sisi2" placeholder="Sisi B">
+      <input type="number" id="sisi3" placeholder="Sisi C">
+      <div id="hasil"></div>
+      <button onclick="hitungKeliling()">Hitung</button>
+      <button class="reset" onclick="resetForm()">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    function hitungKeliling() {
+      const s1 = parseFloat(document.getElementById('sisi1').value);
+      const s2 = parseFloat(document.getElementById('sisi2').value);
+      const s3 = parseFloat(document.getElementById('sisi3').value);
+
+      if (isNaN(s1) || isNaN(s2) || isNaN(s3)) {
+        document.getElementById('hasil').innerHTML = 'Mohon isi semua sisi dengan angka.';
+        return;
+      }
+
+      const keliling = s1 + s2 + s3;
+
+      document.getElementById('hasil').innerHTML =
+        `K = S1 + S2 + S3<br>K = ${s1} + ${s2} + ${s3}<br>K = ${keliling}`;
+    }
+
+    function resetForm() {
+      document.getElementById('sisi1').value = '';
+      document.getElementById('sisi2').value = '';
+      document.getElementById('sisi3').value = '';
+      document.getElementById('hasil').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
